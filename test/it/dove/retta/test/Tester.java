@@ -1,7 +1,6 @@
 package it.dove.retta.test;
 
 import org.junit.*;
-import org.junit.jupiter.api.Assertions;
 
 import it.dove.retta.*;
 import it.dove.retta.exceptions.RettaNonValidaException;
