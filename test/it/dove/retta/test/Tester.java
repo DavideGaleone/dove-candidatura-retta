@@ -88,6 +88,22 @@ public class Tester {
 			Retta r8=Retta.creaDaFormulaEsplicita(1, 2);
 			Assert.assertTrue(r7.equals(r8));
 			Assert.assertTrue(r7.isObliqua());
+			
+			Retta ro=Retta.creaRettaOrizzontale(5);
+			Assert.assertTrue(ro.isOrizzontale());
+			Assert.assertFalse(ro.isObliqua());
+			Assert.assertFalse(ro.isVerticale());
+			
+			Retta rv=Retta.creaRettaVerticale(5);
+			Assert.assertTrue(rv.isVerticale());
+			Assert.assertFalse(rv.isObliqua());
+			Assert.assertFalse(rv.isOrizzontale());
+			
+			Assert.assertTrue(ro.isPerpendicolare(rv));
+			Assert.assertFalse(ro.isParallela(rv));
+			Assert.assertTrue(rv.isPerpendicolare(ro));
+			Assert.assertFalse(rv.isParallela(ro));
+			
 		} catch (RettaNonValidaException e) {
 			e.printStackTrace();
 		}
