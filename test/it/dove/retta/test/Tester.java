@@ -61,7 +61,7 @@ public class Tester {
 		//test di unità "Retta"
 		Segmento s0=new Segmento(new Punto(1, 1), new Punto(1, 1));
 		Assert.assertThrows(RettaNonValidaException.class, () -> {
-			new Retta(0, 0, 5);
+			Retta.creaDaFormulaImplicita(0, 0, 5);
 	    });
 		Assert.assertThrows(RettaNonValidaException.class, () -> {
 			Retta.creaDaSegmento(s0);
@@ -78,11 +78,10 @@ public class Tester {
 			Assert.assertTrue(r3.isPerpendicolare(r4));
 			Assert.assertTrue(r4.isPerpendicolare(r3));
 			
-			Retta r5a=new Retta(-1, 1, -5);
-			Retta r5b=Retta.creaDaFormulaImplicita(-1, 1, -5);
+			Retta r5=Retta.creaDaFormulaImplicita(-1, 1, -5);
 			Retta r6=Retta.creaDaFormulaEsplicita(1, 5);
-			Assert.assertTrue(r5a.equals(r6));
-			Assert.assertTrue(r5a.equals(r5b));
+			Assert.assertTrue(r5.equals(r6));
+			Assert.assertTrue(r6.equals(r5));
 			
 			Segmento s1=new Segmento(new Punto(2, 4), new Punto(4, 6));
 			Retta r7=Retta.creaDaSegmento(s1);

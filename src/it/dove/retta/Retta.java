@@ -7,30 +7,30 @@ public class Retta {
 	private final double b;
 	private final double c;
 	
-	public Retta(double a, double b, double c) throws RettaNonValidaException {
-		//formula implicita: ax + by + c = 0
-		//a e b non possono essere contemporaneamente zero
-		if(a==0 && b==0) {
-			throw new RettaNonValidaException();
-		}
+	private Retta(double a, double b, double c) {
 		this.a=a;
 		this.b=b;
 		this.c=c;
 	}
 
 	public static Retta creaDaFormulaImplicita(double a, double b, double c) throws RettaNonValidaException {
+		//formula implicita: ax + by + c = 0
+		//a e b non possono essere contemporaneamente zero
+		if(a==0 && b==0) {
+			throw new RettaNonValidaException();
+		}
 		return new Retta(a, b, c);
 	}
-	public static Retta creaDaFormulaEsplicita(double m, double q) throws RettaNonValidaException {
+	public static Retta creaDaFormulaEsplicita(double m, double q) {
 		//formula esplicita: y = mx + q
 		//tutti i valori di m e q possono essere accettati
 		//conversione in implicita: -mx + y - q = 0
 		return new Retta(-m, 1, -q);
 	}
-	public static Retta creaRettaOrizzontale(double y) throws RettaNonValidaException {
+	public static Retta creaRettaOrizzontale(double y) {
 		return new Retta(0, 1, -y);
 	}
-	public static Retta creaRettaVerticale(double x) throws RettaNonValidaException {
+	public static Retta creaRettaVerticale(double x) {
 		return new Retta(1, 0, -x);
 	}
 	public static Retta creaDaSegmento(Segmento s) throws RettaNonValidaException {
